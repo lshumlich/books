@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+     <class name="com.pe.books.Clear" table="dbClear">
+        <id name="clearId" type="long" column="clearId">
+            <generator class="identity"/>
+        </id>
+        <property name="accountId" type="long" column="accountId" not-null="true"/>
+        <property name="entryId" type="long" column="entryId" not-null="true"/>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+     <class name="com.pe.books.Entry" table="dbEntry">
+        <id name="entryId" type="long" column="entryId">
+            <generator class="identity"/>
+        </id>
+        <property name="date" type="date" column="date" not-null="true"/>
+        <many-to-one name="drAccount" column="drAccountId" class="com.pe.books.Account" not-null="true"/>
+        <property name="drClear" column="drClear" not-null="true"/>
+        <many-to-one name="crAccount" column="crAccountId" class="com.pe.books.Account" not-null="true"/>
+        <property name="crClear" column="crClear" not-null="true"/>
+        <property name="description" column="description"/>
+        <property name="amount" column="amount" not-null="true"/>
+        <property name="checkNo" column="checkNo"/>
+    </class>
+
+</hibernate-mapping>

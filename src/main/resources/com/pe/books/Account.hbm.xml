@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+     <class name="com.pe.books.Account" table="dbAccount">
+        <id name="accountId" type="long" column="accountId">
+            <generator class="identity"/>
+        </id>
+        <version name="lastUpdated" type="timestamp"/>
+        <property name="code" column="code" unique="true" not-null="true"/>
+        <property name="displayOrder" column="displayOrder" not-null="true"/>
+        <property name="type" column="type" not-null="true"/>
+        <property name="description" column="description" not-null="true"/>
+        <property name="currentBalance" column="currentBalance" not-null="true"/>
+        <property name="budget" column="budget" not-null="true"/>
+        <property name="active" column="active" not-null="true"/>
+    </class>
+
+</hibernate-mapping>

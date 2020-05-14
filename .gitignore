@@ -1,0 +1,7 @@
+#
+# A very simple ignore file
+#
+
+target/
+src/main/resources/hibernate.cfg.xml
+
