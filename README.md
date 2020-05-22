@@ -40,3 +40,7 @@ Setup a user and database. This app will create all of the tables if you change 
 
 copy src/main/resources/hibernate.cfg2.xml.backup to (remove backup)
 
+To package and build: 
+- right click on the project
+- run as maven build ...
+- select goal: install package
