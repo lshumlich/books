@@ -307,7 +307,7 @@ public class BooksManager {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 //        Transaction transaction = session.getTransaction();
-        transaction.begin();
+//        transaction.begin();
         
         if (entry.getDrAccount().isAssetAccount()) {
             this.updateAssetAccount(entry.getDrAccount().getAccountId(), entry.getAmount().negate(), session);
@@ -315,8 +315,10 @@ public class BooksManager {
         if (entry.getCrAccount().isAssetAccount()) {
             this.updateAssetAccount(entry.getCrAccount().getAccountId(), entry.getAmount(), session);
         }
+//        Account account = (Account) session.createQuery("from Account where code = :code").setParameter("code", s).uniqueResult();
 
-        int entryRows = session.createQuery("delete Entry where entryId = ?").setLong(0, entryId).executeUpdate();
+//        int entryRows = session.createQuery("delete Entry where entryId = ?").setLong(0, entryId).executeUpdate();
+        int entryRows = session.createQuery("delete Entry where entryId = :id").setParameter("id", entryId).executeUpdate();
 
         transaction.commit();
         

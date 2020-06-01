@@ -31,8 +31,10 @@ public class EntriesByAccountBean {
     
     public Account getAccount() {
 
-    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction transaction = session.beginTransaction();
+//    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+    	
+    	Transaction transaction = session.beginTransaction();
 
         Account account = BooksManager.getInstance().getAccountById(this.accountId);
         
