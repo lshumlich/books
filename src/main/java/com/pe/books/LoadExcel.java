@@ -46,7 +46,8 @@ public class LoadExcel extends TestCase {
 
     public void process(File file, PrintWriter out) throws FileNotFoundException, IOException {
 
-    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    	Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
         POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(file));

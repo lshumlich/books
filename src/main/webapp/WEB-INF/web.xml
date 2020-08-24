@@ -7,11 +7,6 @@
 	<display-name>Books Web Application</display-name>
 
 	<servlet>
-		<servlet-name>UploadExcel</servlet-name>
-		<servlet-class>com.pe.books.servlets.UploadExcel</servlet-class>
-	</servlet>
-
-	<servlet>
 		<servlet-name>MonthlySummaryExcel</servlet-name>
 		<servlet-class>com.pe.books.servlets.MonthlySummaryExcel</servlet-class>
 	</servlet>
@@ -29,6 +24,11 @@
 	<servlet-mapping>
 		<servlet-name>MonthlySummaryExcel</servlet-name>
 		<url-pattern>/MonthlySummaryExcel</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UploadExcel</servlet-name>
+		<url-pattern>/UploadExcel</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

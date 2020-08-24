@@ -37,6 +37,8 @@ import com.pe.books.LoadExcel;
         out.print("<h1 align=\"center\">Update Excel Results</h1>");
         FileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
+        
+        
         try {
             List<FileItem> items = upload.parseRequest(request);
             Iterator<FileItem> iter = items.iterator();
@@ -45,9 +47,18 @@ import com.pe.books.LoadExcel;
                 if (!item.isFormField()) {
                     String fileName = item.getName();
                     if(fileName.toLowerCase().endsWith(".xls")) {
-                        String fieldName = item.getFieldName();
+//                        String fieldName = item.getFieldName();
+                        System.out.println("-----temp file-----"  + System.getProperty("java.io.tmpdir"));
+//                        System.out.println("-----fieldName -----"  + fieldName);
+                        System.out.println("-----fileName -----"  + fileName);
+//                        new File(fileName).getName()
+                        String fName = System.getProperty("java.io.tmpdir") + new File(fileName).getName();
+                        System.out.println("-----fName -----"  + fName);
+                        
+                        
                         out.println("<pre>");
-                        File file = new File(new File(fileName).getName()); // Just the file name part
+//                        File file = new File(new File(fileName).getName()); // Just the file name part
+                        File file = new File(fName); // Just the file name part
                         item.write(file);
                         LoadExcel loadExcel = new LoadExcel();
                         loadExcel.process(file, out);
